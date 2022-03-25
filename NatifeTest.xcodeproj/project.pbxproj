@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		2E092EDF27EDB5D8009A141F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EDE27EDB5D8009A141F /* PostTableViewCell.swift */; };
 		2E092EE127EDC701009A141F /* FullPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EE027EDC701009A141F /* FullPostViewController.swift */; };
 		2E092EE327EDCC9C009A141F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EE227EDCC9C009A141F /* Extensions.swift */; };
+		2E092EE527EDD8CA009A141F /* PostsDataClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EE427EDD8CA009A141F /* PostsDataClasses.swift */; };
+		2E092EE727EDDBEB009A141F /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EE627EDDBEB009A141F /* PostsService.swift */; };
+		2E092EE927EDECBB009A141F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E092EE827EDECBB009A141F /* ImageService.swift */; };
+		56483AEC0198C7600D23444E /* Pods_NatifeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA198EF9F0E61945A85E0A5 /* Pods_NatifeTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,12 @@
 		2E092EDE27EDB5D8009A141F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		2E092EE027EDC701009A141F /* FullPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPostViewController.swift; sourceTree = "<group>"; };
 		2E092EE227EDCC9C009A141F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2E092EE427EDD8CA009A141F /* PostsDataClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataClasses.swift; sourceTree = "<group>"; };
+		2E092EE627EDDBEB009A141F /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		2E092EE827EDECBB009A141F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		3AA198EF9F0E61945A85E0A5 /* Pods_NatifeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NatifeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91795E2DF5CA542ECC9269A4 /* Pods-NatifeTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatifeTest.debug.xcconfig"; path = "Target Support Files/Pods-NatifeTest/Pods-NatifeTest.debug.xcconfig"; sourceTree = "<group>"; };
+		BB0D77662D754213876DF6B9 /* Pods-NatifeTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatifeTest.release.xcconfig"; path = "Target Support Files/Pods-NatifeTest/Pods-NatifeTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56483AEC0198C7600D23444E /* Pods_NatifeTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +59,8 @@
 			children = (
 				2E092EC627ED9696009A141F /* NatifeTest */,
 				2E092EC527ED9696009A141F /* Products */,
+				9EF03DAEDAE9DEC48740CBED /* Pods */,
+				E984DF9FCB05A21190A8274E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,8 +109,28 @@
 		2E092EDD27EDB5C5009A141F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E092EE427EDD8CA009A141F /* PostsDataClasses.swift */,
+				2E092EE627EDDBEB009A141F /* PostsService.swift */,
+				2E092EE827EDECBB009A141F /* ImageService.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9EF03DAEDAE9DEC48740CBED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91795E2DF5CA542ECC9269A4 /* Pods-NatifeTest.debug.xcconfig */,
+				BB0D77662D754213876DF6B9 /* Pods-NatifeTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E984DF9FCB05A21190A8274E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AA198EF9F0E61945A85E0A5 /* Pods_NatifeTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E092ED827ED969A009A141F /* Build configuration list for PBXNativeTarget "NatifeTest" */;
 			buildPhases = (
+				993797DFC8FE6B425FA95D4B /* [CP] Check Pods Manifest.lock */,
 				2E092EC027ED9696009A141F /* Sources */,
 				2E092EC127ED9696009A141F /* Frameworks */,
 				2E092EC227ED9696009A141F /* Resources */,
+				8052F0BE9351D7D13C9C94C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +200,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8052F0BE9351D7D13C9C94C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NatifeTest/Pods-NatifeTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NatifeTest/Pods-NatifeTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NatifeTest/Pods-NatifeTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		993797DFC8FE6B425FA95D4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NatifeTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2E092EC027ED9696009A141F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -172,9 +249,12 @@
 			files = (
 				2E092ECC27ED9696009A141F /* PostsTableViewController.swift in Sources */,
 				2E092EE327EDCC9C009A141F /* Extensions.swift in Sources */,
+				2E092EE927EDECBB009A141F /* ImageService.swift in Sources */,
 				2E092EC827ED9696009A141F /* AppDelegate.swift in Sources */,
 				2E092EE127EDC701009A141F /* FullPostViewController.swift in Sources */,
 				2E092ECA27ED9696009A141F /* SceneDelegate.swift in Sources */,
+				2E092EE527EDD8CA009A141F /* PostsDataClasses.swift in Sources */,
+				2E092EE727EDDBEB009A141F /* PostsService.swift in Sources */,
 				2E092EDF27EDB5D8009A141F /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +399,7 @@
 		};
 		2E092ED927ED969A009A141F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91795E2DF5CA542ECC9269A4 /* Pods-NatifeTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -339,6 +420,7 @@
 		};
 		2E092EDA27ED969A009A141F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0D77662D754213876DF6B9 /* Pods-NatifeTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
