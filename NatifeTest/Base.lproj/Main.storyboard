@@ -134,6 +134,9 @@
                         <barButtonItem key="backBarButtonItem" title="Назад" id="XwK-k3-ZE5"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease" catalog="system" id="NLd-Vv-hx1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="sortBarButtonTapped:" destination="BYZ-38-t0r" id="d9R-3z-MBz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
