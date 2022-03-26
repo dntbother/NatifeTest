@@ -129,7 +129,7 @@
                                         <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.30464743270355016" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TLD-r1-Ggh" firstAttribute="centerX" secondItem="f1I-So-1n3" secondAttribute="centerX" id="IeB-qg-PYY"/>
                                     <constraint firstItem="TLD-r1-Ggh" firstAttribute="centerY" secondItem="f1I-So-1n3" secondAttribute="centerY" id="gWw-94-adT"/>
