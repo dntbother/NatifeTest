@@ -29,11 +29,6 @@ class PostsTableViewController: UIViewController {
         super.viewDidLoad()
         
         initTableView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         fetchPosts()
     }
     
@@ -51,11 +46,17 @@ class PostsTableViewController: UIViewController {
     }
     
     private func fetchPosts() {
+        showLoadingView()
         postsService.fetchPosts { [weak self] posts in
+            self?.hideLoadingView()
             if let posts = posts {
                 self?.posts = posts.posts
                 
                 self?.tableView.reloadData()
+            } else {
+                if let alert = self?.createErrorAlert(title: "Ошибка", message: "Не удалось загрузить посты.") {
+                    self?.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -74,6 +75,18 @@ class PostsTableViewController: UIViewController {
         alert.addAction(okAction)
         
         return alert
+    }
+    
+    private func showLoadingView() {
+        if loadingView.isHidden {
+            loadingView.fadeIn()
+        }
+    }
+    
+    private func hideLoadingView() {
+        if !loadingView.isHidden {
+            loadingView.fadeOut()
+        }
     }
     
     // MARK: - TableView reload functions
@@ -171,10 +184,10 @@ extension PostsTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postId = posts[indexPath.row].postId
-        loadingView.isHidden = false
+        showLoadingView()
         
         postsService.fetchFullPost(with: postId) { [weak self] fullPost in
-            self?.loadingView.isHidden = true
+            self?.hideLoadingView()
             
             if let fullPost = fullPost {
                 self?.fullPostForSegue = fullPost
