@@ -50,9 +50,10 @@ class FullPostViewController: UIViewController {
     
     private func fetchAndSetImagesFromPost() {
         for imageUrl in post.images {
-            let view = UIActivityIndicatorView()
-            view.startAnimating()
-            imagesStackView.addArrangedSubview(view)
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.color = .black
+            activityIndicator.startAnimating()
+            imagesStackView.addArrangedSubview(activityIndicator)
             
             imageService.fetchImage(from: imageUrl) { [weak self] image in
                 if let image = image {
@@ -64,8 +65,8 @@ class FullPostViewController: UIViewController {
                         self?.imagesStackView.addArrangedSubview(imageView)
                     }
                 }
-                self?.imagesStackView.removeArrangedSubview(view)
-                view.removeFromSuperview()
+                self?.imagesStackView.removeArrangedSubview(activityIndicator)
+                activityIndicator.removeFromSuperview()
             }
         }
     }
