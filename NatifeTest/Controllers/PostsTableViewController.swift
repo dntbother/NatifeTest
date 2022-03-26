@@ -85,20 +85,37 @@ class PostsTableViewController: UIViewController {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
+    // MARK: - Sorting
+    private func createSortingActionSheet() -> UIAlertController {
+        let alertController = UIAlertController(title: "Сортировка:", message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        let likesSortAction = UIAlertAction(title: "Рейтингу", style: .default) { action in
-            // func to sort by likes
+        let likesSortAction = UIAlertAction(title: "Самые популярные", style: .default) { action in
+            self.sortPostsByLikes()
+            self.sortButton.title = "Сорт. по популярным"
+            self.reloadTableViewData()
         }
-        let dateSortAction = UIAlertAction(title: "Дате", style: .default) { action in
-            // func to sort by date
+        let dateSortAction = UIAlertAction(title: "Самые недавние", style: .default) { action in
+            self.sortByNew()
+            self.sortButton.title = "Сорт. по недавним"
+            self.reloadTableViewData()
         }
         
         alertController.addAction(cancelAction)
         alertController.addAction(likesSortAction)
         alertController.addAction(dateSortAction)
         
-        present(alertController, animated: true, completion: nil)
+        return alertController
+    }
+    
+    private func sortPostsByLikes() {
+        posts.sort { $0.likesCount > $1.likesCount }
+    }
+    
+    private func sortByNew() {
+        posts.sort { $0.timeshamp > $1.timeshamp }
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FullPostViewController {
