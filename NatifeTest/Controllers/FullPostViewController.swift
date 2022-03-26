@@ -54,15 +54,17 @@ class FullPostViewController: UIViewController {
             view.startAnimating()
             imagesStackView.addArrangedSubview(view)
             
-            imageService.fetchImage(from: imageUrl) { image in
+            imageService.fetchImage(from: imageUrl) { [weak self] image in
                 if let image = image {
-                    let imageView = self.getImageViewFor(image: image)
-                    self.imagesStackView.addArrangedSubview(imageView)
+                    if let imageView = self?.getImageViewFor(image: image) {
+                        self?.imagesStackView.addArrangedSubview(imageView)
+                    }
                 } else {
-                    let imageView = self.getImageViewFor(image: UIImage(named: "noImage.svg")!)
-                    self.imagesStackView.addArrangedSubview(imageView)
+                    if let imageView = self?.getImageViewFor(image: UIImage(named: "noImage.svg")!) {
+                        self?.imagesStackView.addArrangedSubview(imageView)
+                    }
                 }
-                self.imagesStackView.removeArrangedSubview(view)
+                self?.imagesStackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
             }
         }
