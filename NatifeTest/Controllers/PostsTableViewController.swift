@@ -90,15 +90,15 @@ class PostsTableViewController: UIViewController {
         let alertController = UIAlertController(title: "Сортировка:", message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        let likesSortAction = UIAlertAction(title: "Самые популярные", style: .default) { action in
-            self.sortPostsByLikes()
-            self.sortButton.title = "Сорт. по популярным"
-            self.reloadTableViewData()
+        let likesSortAction = UIAlertAction(title: "Самые популярные", style: .default) { [weak self] action in
+            self?.sortPostsByLikes()
+            self?.sortButton.title = "Сорт. по популярным"
+            self?.reloadTableViewData()
         }
-        let dateSortAction = UIAlertAction(title: "Самые недавние", style: .default) { action in
-            self.sortByNew()
-            self.sortButton.title = "Сорт. по недавним"
-            self.reloadTableViewData()
+        let dateSortAction = UIAlertAction(title: "Самые недавние", style: .default) { [weak self] action in
+            self?.sortByNew()
+            self?.sortButton.title = "Сорт. по недавним"
+            self?.reloadTableViewData()
         }
         
         alertController.addAction(cancelAction)
@@ -173,15 +173,18 @@ extension PostsTableViewController: UITableViewDataSource {
         let postId = posts[indexPath.row].postId
         loadingView.isHidden = false
         
-        postsService.fetchFullPost(with: postId) { fullPost in
-            self.loadingView.isHidden = true
+        postsService.fetchFullPost(with: postId) { [weak self] fullPost in
+            self?.loadingView.isHidden = true
             
             if let fullPost = fullPost {
-                self.fullPostForSegue = fullPost
-                self.performSegue(withIdentifier: self.segueId, sender: self)
+                self?.fullPostForSegue = fullPost
+                if let segueId = self?.segueId {
+                    self?.performSegue(withIdentifier: segueId, sender: self)
+                }
             } else {
-                let alert = self.createErrorAlert(title: "Ошибка", message: "Не удалось загрузить пост.")
-                self.present(alert, animated: true, completion: nil)
+                if let alert = self?.createErrorAlert(title: "Ошибка", message: "Не удалось загрузить пост.") {
+                    self?.present(alert, animated: true, completion: nil)
+                }
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
