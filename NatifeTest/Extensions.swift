@@ -17,3 +17,9 @@ extension UIImageView {
         }
     }
 }
+
+extension Double {
+    func convertUnixEpochToDate() -> Date {
+        return Date(timeIntervalSince1970: self)
+    }
+}

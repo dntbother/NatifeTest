@@ -17,7 +17,7 @@ class Posts: Decodable {
 
 class PreviewPost: Decodable {
     var postId: Int
-    var timeshamp: Int
+    var timeshamp: Double
     var title: String
     var previewText: String
     var likesCount: Int
@@ -41,7 +41,7 @@ class FullPostWrapper: Decodable {
 
 class FullPost: Decodable {
     var postId: Int
-    var timeshamp: Int
+    var timeshamp: Double
     var title: String
     var text: String
     var images: [String]
